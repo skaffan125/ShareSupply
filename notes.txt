@@ -1,0 +1,1212 @@
+ 10:<input type="hidden" name="admin_id" value="<?= $fetch_posts['admin_id']; ?>">
+
+  11:    <input type="hidden" name="admin_id" value="<?= $fetch_posts['admin_id']; ?>">
+
+
+
+5/5/23:
+
+
+A problem in Recipient Panel :Add Post..
+
+A pannel should be created in Donour Panel AS LIKE read_post of Reciepent
+
+
+
+
+
+
+
+
+solving REsgestration panel in Donour..
+
+
+
+
+CSS:
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root{
+   --main-color:#4834d4;
+   --red:#e74c3c;
+   --orange:#f39c12;
+   --black:#34495e;
+   --white:#fff;
+   --light-bg:#f5f5f5;
+   --light-color:#999;
+   --border:.2rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+
+*::selection{
+   background-color: var(--main-color);
+   color:var(--white);
+}
+
+::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+::-webkit-scrollbar-track{
+   background-color: none;
+}
+
+::-webkit-scrollbar-thumb{
+   background-color: var(--main-color);
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   scroll-padding-top: 7rem;
+}
+
+body{
+   background: url('Charity1.jpg') ;
+   background-repeat: no-repeat;
+  
+   background-size: cover;
+ 
+}
+      
+
+s
+section{
+   padding:2rem;
+   margin: 0 auto;
+   max-width: 1200px;
+}
+
+.btn,
+.delete-btn,
+.option-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+   margin-top: 1rem;
+   border-radius: .5rem;
+   cursor: pointer;
+   font-size: 1.8rem;
+   color:var(--white);
+   padding:1.2rem 3rem;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+   display: inline-block;
+   margin-right: 1rem;
+}
+
+.btn,
+.delete-btn,
+.option-btn{
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.btn{
+   background-color: var(--main-color);
+}
+
+.inline-delete-btn,
+.delete-btn{
+   background-color: var(--red);
+}
+
+.inline-option-btn,
+.option-btn{
+   background-color: var(--orange);
+}
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover,
+.inline-btn:hover,
+.inline-delete-btn:hover,
+.inline-option-btn:hover{
+   background-color: var(--black);
+}
+
+.flex-btn{
+   display: flex;
+   gap:1rem;
+}
+
+.message{
+   position: sticky;
+   top:0;
+   max-width: 1200px;
+   margin:0 auto;
+   background-color: var(--light-bg);
+   padding:2rem;
+   display: flex;
+   align-items: center;
+   gap:1rem;
+   justify-content: space-between;
+}
+
+.message span{
+   font-size: 2rem;
+   color:var(--black);
+}
+
+.message i{
+   font-size: 2.5rem;
+   color:var(--red);
+   cursor: pointer;
+}
+
+.message i:hover{
+   color:var(--black);
+}
+
+.empty{
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding:1.5rem;
+   text-align: center;
+   width: 100%;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color:var(--red);
+   box-shadow: var(--box-shadow);
+}
+
+.heading{
+   margin-bottom: 2rem;
+   text-align: center;
+   font-size: 4rem;
+   color:var(--black);
+   text-transform: capitalize;
+}
+
+.header{
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   border-bottom: var(--border);
+   position: sticky;
+   top:0; left:0; right: 0;
+   z-index: 1000;
+}
+
+.header .flex{
+   display: flex;
+   align-items: center;
+   gap:1.5rem;
+   justify-content: space-between;
+   position: relative;
+   padding:1.5rem 2rem;
+}
+
+.header .flex .logo{
+   font-size: 2.5rem;
+   color:var(--black);
+}
+
+.header .flex .search-form{
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   display: flex;
+   gap:2rem;
+   padding:1.5rem 2rem;
+   width: 50rem;
+}
+
+.header .flex .search-form .box{
+   width: 100%;
+   background: none;
+   font-size: 1.7rem;
+   color:var(--black);
+}
+
+.header .flex .search-form .fa-search{
+   font-size: 2rem;
+   cursor: pointer;
+   color:var(--black);
+   background: none;
+}
+
+.header .flex .icons div{
+   font-size: 2rem;
+   color:var(--black);
+   cursor: pointer;
+   margin-left: .5rem;
+   height: 4.5rem;
+   width: 4.7rem;
+   line-height: 4rem;
+   border:var(--border);
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   border-radius: .5rem;
+   text-align: center;
+}
+
+.header .flex .icons div:hover{
+   background-color: var(--black);
+   color:var(--white);
+}
+
+.header .flex .navbar{
+   position: absolute;
+   top:125%; right:2rem;
+   border: var(--border);
+   background-color: var(--white);
+   border-radius: .5rem;
+   width:30rem;
+   box-shadow: var(--border);
+   display: none;
+   animation: .2s linear fadeIn;
+}
+
+.header .flex .navbar.active{
+   display: inline-block;
+}
+
+@keyframes fadeIn {
+   0%{
+      transform: translateY(1rem);
+   }
+}
+
+.header .flex .navbar a{
+   display: block;
+   margin:2rem;
+   font-size: 2rem;
+   color:var(--black);
+}
+
+.header .flex .navbar a i{
+   margin-right: 1rem;
+   color:var(--main-color);
+   transition: .2s linear;
+}
+
+.header .flex .navbar a:hover i{
+   margin-right: 2rem;
+}
+
+.header .flex .profile{
+   position: absolute;
+   top:125%; right:2rem;
+   border: var(--border);
+   background-color: var(--white);
+   border-radius: .5rem;
+   width:30rem;
+   box-shadow: var(--border);
+   display: none;
+   padding: 1.5rem;
+   animation: .2s linear fadeIn;
+   text-align: center;
+   overflow: hidden;
+}
+
+.header .flex .profile p{
+   padding-bottom: .7rem;
+   font-size: 2rem;
+   color:var(--light-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.header .flex .profile.active{
+   display: inline-block;
+}
+
+#search-btn{
+   display: none;
+}
+
+.form-container{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: calc(100vh - 16rem);
+}
+
+.form-container form{
+   background-color: var(--white);
+   border-radius: .5rem;
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   padding:2rem;
+   text-align: center;
+   width: 50rem;
+}
+
+.form-container form h3{
+   font-size: 2.5rem;
+   color:var(--black);
+   text-transform: uppercase;
+   margin-bottom: 1rem;
+}
+
+.form-container form p{
+   padding-top: 1.5rem;
+   font-size: 2rem;
+   color:var(--light-color);
+}
+
+.form-container form p a{
+   color:var(--orange);
+}
+
+.form-container form p a:hover{
+   text-decoration: underline;
+   color:var(--black);
+}
+
+.form-container form .box{
+   width: 100%;
+   background-color: var(--light-bg);
+   padding:1.4rem;
+   font-size: 1.4rem;
+   color:var(--black);
+   margin:1rem 0;
+   border:var(--border);
+   font-size: 1.8rem;
+   border-radius: .5rem;
+}
+
+.home-grid .box-container{
+
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap:1.5rem;
+   align-items: flex-start;
+   
+   
+}
+
+.home-grid .box-container .box{
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding:2rem;
+   overflow: hidden;
+   background-image: url('login.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home-grid .box-container .box1{
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding:2rem;
+   overflow: hidden;
+   background-image: url('Charity2.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.home-grid .box-container .box2{
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding:2rem;
+   overflow: hidden;
+   background-image: url('Charity3.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home-grid .box-container .box p{
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color:var(--light-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.home-grid .box-container .box p span{
+   color:var(--main-color);
+}
+
+.home-grid .box-container .box .flex-box{
+   display: flex;
+   flex-wrap: wrap;
+   gap:1rem;
+   padding-top: 1rem;
+   background-image: url('.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home-grid .box-container .box .flex-box .links{
+   padding:1rem 3rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   font-size: 2rem;
+   color:var(--black);
+   border:var(--border);
+}
+
+.home-grid .box-container .box .flex-box .links:hover{
+   background-color: var(--black);
+   color:var(--white);
+}
+
+
+
+
+
+
+
+
+.home-grid .box-container .box1 p{
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color:var(--light-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.home-grid .box-container .box1 p span{
+   color:var(--main-color);
+}
+
+.home-grid .box-container .box1 .flex-box{
+   display: flex;
+   flex-wrap: wrap;
+   gap:1rem;
+   padding-top: 1rem;
+   background-image: url('.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home-grid .box-container .box1 .flex-box .links{
+   padding:1rem 3rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   font-size: 2rem;
+   color:var(--black);
+   border:var(--border);
+}
+
+.home-grid .box-container .box1 .flex-box .links:hover{
+   background-color: var(--black);
+   color:var(--white);
+}
+
+
+
+
+
+.home-grid .box-container .box2 p{
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color:var(--light-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.home-grid .box-container .box2 p span{
+   color:var(--main-color);
+}
+
+.home-grid .box-container .box2 .flex-box{
+   display: flex;
+   flex-wrap: wrap;
+   gap:1rem;
+   padding-top: 1rem;
+   background-image: url('.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home-grid .box-container .box2 .flex-box .links{
+   padding:1rem 3rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   font-size: 2rem;
+   color:var(--black);
+   border:var(--border);
+}
+
+.home-grid .box-container .box2 .flex-box .links:hover{
+   background-color: var(--black);
+   color:var(--white);
+}
+
+.posts-container .box-container{
+  
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap:1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.posts-container .box-container .box{
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding:2rem;
+   overflow: hidden;
+   background-image: url('Charity4.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.posts-container .box-container .box .post-admin{
+   display: flex;
+   align-items: center;
+   gap:1.5rem;
+   margin-bottom: 2rem;
+}
+
+.posts-container .box-container .box .post-admin i{
+   text-align: center;
+   height: 4.5rem;
+   width: 5rem;
+   line-height: 4.2rem;
+   font-size: 2rem;
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   color:var(--black);
+}
+
+.posts-container .box-container .box .post-admin a{
+   font-size: 2rem;
+   color:var(--main-color);
+}
+
+.posts-container .box-container .box .post-admin a:hover{
+   color:var(--black);
+}
+
+.posts-container .box-container .box .post-admin div{
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color:var(--light-color);
+}
+
+.posts-container .box-container .box .post-image{
+   width: 100%;
+   border-radius: .5rem;
+   margin-bottom: 2rem;
+}
+
+.posts-container .box-container .box .post-title{
+   font-size: 2rem;
+   color:var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   margin-bottom: 1rem;
+}
+
+.posts-container .box-container .box .post-content{
+   font-size: 2rem;
+   line-height: 1.5;
+   padding:.5rem 0;
+   color:var(--light-color);
+   white-space: pre-line;
+}
+
+.posts-container .box-container .box .post-content::after{
+   content: '...';
+}
+
+.posts-container .box-container .box .post-cat{
+   display: block;
+   margin-top: 2rem;
+   font-size: 1.7rem;
+}
+
+.posts-container .box-container .box .post-cat i{
+   margin-right: .5rem;
+   color:var(--light-color);
+}
+
+.posts-container .box-container .box .post-cat{
+   color:var(--main-color);
+}
+
+.posts-container .box-container .box .post-cat:hover{
+   color:var(--black);
+}
+
+.posts-container .box-container .box .icons{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap:1rem;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding:1.5rem 2rem;
+   border:var(--border);
+   margin-top: 2rem;
+}
+
+.posts-container .box-container .box .icons button{
+   cursor: pointer;
+}
+
+.posts-container .box-container .box .icons i{
+   margin-right:.5rem;
+   font-size:2rem;
+   color:var(--light-color);
+}
+
+.posts-container .box-container .box .icons span{
+   font-size: 2rem;
+   color:var(--main-color);
+}
+
+.posts-container .box-container .box .icons *:hover{
+   color:var(--black);
+}
+
+.comments-container .comment-title{
+   background-color: var(--black);
+   color:var(--white);
+   padding:1.5rem;
+   font-size: 2rem;
+   border-radius: .5rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+.comments-container .add-comment{
+   border:var(--border);
+   margin-bottom: 2rem;
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   padding:2rem;
+   background-color: var(--white);
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.comments-container .add-comment p{
+   font-size: 2rem;
+   color:var(--light-color);
+   margin-bottom: 1rem;
+}
+
+.comments-container .add-comment p i{
+   margin-right:1rem;
+}
+
+.comments-container .add-comment p a{
+   color:var(--main-color);
+}
+
+.comments-container .add-comment p a:hover{
+   text-decoration: underline;
+   color:var(--black);
+}
+
+.comments-container .add-comment textarea{
+   width: 100%;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding:1.5rem 2rem;
+   margin:1rem 0;
+   border: var(--border);
+   font-size: 2rem;
+   color:var(--black);
+   height: 15rem;
+   resize:none;
+}
+
+.comments-container .user-comments-container{
+   display: grid;
+   gap:2.5rem;
+   border:var(--border);
+   box-shadow: var(--box-shadow);
+   border-radius: .5rem;
+   padding:2rem;
+   background-color: var(--white);
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+.comments-container .user-comments-container .show-comments .post-title{
+   margin-bottom: 1rem;
+   font-size: 2rem;
+   color:var(--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .post-title span{
+   color:var(--black);
+   line-height: 1.5;
+}
+
+.comments-container .user-comments-container .show-comments .post-title a{
+   color:var(--main-color);
+}
+
+.comments-container .user-comments-container .show-comments .post-title a:hover{
+   text-decoration: underline;
+}
+
+.comments-container .user-comments-container .show-comments .comment-user{
+   display: flex;
+   align-items: center;
+   gap:1rem;
+   margin-bottom: 1.5rem;
+}
+
+.comments-container .user-comments-container .show-comments .comment-user i{
+   text-align: center;
+   height: 5rem;
+   width: 5rem;
+   line-height: 4.7rem;
+   font-size: 2rem;
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   color:var(--black);
+}
+
+.comments-container .user-comments-container .show-comments .comment-user span{
+   font-size: 2rem;
+   color:var(--main-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-user div{
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color:var(--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-text{
+   line-height: 1.5;
+   font-size: 1.7rem;
+   color:var(--light-color);
+}
+
+.comments-container .user-comments-container .show-comments .comment-box{
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding:1.5rem 2rem;
+   font-size: 2rem;
+   color:var(--black);
+   width: 100%;
+   white-space: pre-line;
+   line-height: 1.5;
+   border: var(--border);
+}
+
+.comments-container .user-comments-container .show-comments textarea{
+   resize: none;
+   border:var(--border);
+}
+
+.comment-edit-form{
+   padding-bottom: 0;
+}
+
+.comment-edit-form p{
+   background-color: var(--black);
+   color:var(--white);
+   padding:1.5rem;
+   font-size: 2rem;
+   border-radius: .5rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+.comment-edit-form form{
+   border-bottom-left-radius: .5rem;
+   border-bottom-right-radius: .5rem;
+   border:var(--border);
+   padding:2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.comment-edit-form form textarea{
+   font-size: 2rem;
+   color:var(--black);
+   line-height: 1.5;
+   height: 15rem;
+   width: 100%;
+   resize: none;
+   background-color: var(--light-bg);
+   border:var(--border);
+   border-radius: .5rem;
+   padding:1.5rem;
+   margin-bottom: .5rem;
+}
+
+.authors .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap:1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.authors .box-container .box{
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding:2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.authors .box-container .box p{
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color:var(--light-color);
+}
+
+.authors .box-container .box p span{
+   color:var(--main-color);
+}
+
+.categories .box-container{
+   border:var(--border);
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding:1rem 2rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.categories .box-container .box{
+   padding:1rem 0;
+   font-size: 2rem;
+}
+
+.categories .box-container .box span{
+   color:var(--light-color);
+   display: inline-block;
+   padding:.7rem 1rem;
+   border:var(--border);
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   text-align: center;
+}
+
+.categories .box-container .box a{
+   margin-left: 1.2rem;
+   color:var(--black);
+}
+
+.categories .box-container .box a:hover{
+   color:var(--main-color);
+   text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+   background-color: var(--white);
+   position: fixed;
+   bottom: 0; left:0; right:0;
+   border-top: var(--border);
+   text-align: center;
+   font-size: 2rem;
+   color:var(--light-color);
+   padding:2rem;
+}
+
+.footer span{
+   color:var(--main-color);
+}
+
+/* body{
+   padding-bottom: 15rem;
+}
+
+.footer{
+   padding-bottom: 10rem;
+} */
+
+
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:768px){
+
+   body{
+      padding-bottom: 10rem;
+   }
+
+   #search-btn{
+      display: inline-block;
+   }
+
+   .header .flex .search-form{
+      position: absolute;
+      top:99%; left:0; right: 0;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      padding:2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: .2s linear;
+   }
+
+   .header .flex .search-form.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+   .heading{
+      font-size: 3rem;
+   }  
+
+}
+
+
+
+
+
+home:
+<?php
+
+include '../components/connect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+};
+
+include '../components/like_post.php';
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>home page</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <link rel="stylesheet" href="1.css/style.css">
+
+</head>
+<body>
+   
+<?php include 'components/user_header.php'; ?>
+
+<section class="home-grid">
+
+   <div class="box-container">
+
+      <div class="box">
+         <?php
+            $select_profile = $conn->prepare("SELECT * FROM `don` WHERE id = ?");
+            $select_profile->execute([$user_id]);
+            if($select_profile->rowCount() > 0){
+               $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+               $count_user_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
+               $count_user_comments->execute([$user_id]);
+               $total_user_comments = $count_user_comments->rowCount();
+               $count_user_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
+               $count_user_likes->execute([$user_id]);
+               $total_user_likes = $count_user_likes->rowCount();
+         ?>
+         <p> welcome <span><?= $fetch_profile['name']; ?></span></p>
+         <p>total comments : <span><?= $total_user_comments; ?></span></p>
+         
+         <a href="update.php" class="btn">update profile</a>
+         <div class="flex-btn">
+            <a href="user_likes.php" class="option-btn">likes</a>
+            <a href="user_comments.php" class="option-btn">comments</a>
+         </div>
+         <?php
+            }else{
+         ?>
+            <p class="name">login or register!</p>
+            <div class="flex-btn">
+               <a href="Dlogin.php" class="option-btn">login</a>
+               <a href="Dregister.php" class="option-btn">register</a>
+            </div> 
+         <?php
+          }
+         ?>
+      </div>
+
+      <div class="box1">
+         <p>Donation Criteria</p>
+         <div class="flex-box">
+            <a href="category.php?category=nature" class="links">Individual</a>
+            <a href="category.php?category=education" class="links">Institutional</a>
+            <a href="category.php?category=business" class="links">Educational</a>
+            <a href="category.php?category=travel" class="links">Treatment</a>
+            <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+
+            <a href="all_category.php" class="btn">view all</a>
+         </div>
+      </div>
+
+      <div class="box2">
+         <p>Recipients</p>
+         <div class="flex-box">
+         <?php
+            $select_authors = $conn->prepare("SELECT DISTINCT name FROM `posts` WHERE status='active' LIMIT 10");
+            $select_authors->execute();
+            if($select_authors->rowCount() > 0){
+               while($fetch_authors = $select_authors->fetch(PDO::FETCH_ASSOC)){ 
+         ?>
+            <a href="author_posts.php?author=<?= $fetch_authors['name']; ?>" class="links"><?= $fetch_authors['name']; ?></a>
+            <?php
+            }
+         }else{
+            echo '<p class="empty">no posts added yet!</p>';
+         }
+         ?>  
+         <a href="authors.php" class="btn">view all</a>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<section class="posts-container">
+
+   <h1 class="heading">latest posts</h1>
+
+   <div class="box-container">
+
+      <?php
+         $select_posts = $conn->prepare("SELECT * FROM `posts` WHERE status = ? LIMIT 6 ");
+         $select_posts->execute(['active']);
+         if($select_posts->rowCount() > 0){
+            while($fetch_posts = $select_posts->fetch(PDO::FETCH_ASSOC)){
+               
+               $post_id = $fetch_posts['id'];
+
+               $count_post_comments = $conn->prepare("SELECT * FROM `comments` WHERE post_id = ?");
+               $count_post_comments->execute([$post_id]);
+               $total_post_comments = $count_post_comments->rowCount(); 
+
+               $count_post_likes = $conn->prepare("SELECT * FROM `likes` WHERE post_id = ?");
+               $count_post_likes->execute([$post_id]);
+               $total_post_likes = $count_post_likes->rowCount();
+
+               $confirm_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ? AND post_id = ?");
+               $confirm_likes->execute([$user_id, $post_id]);
+      ?>
+      <form class="box" method="post">
+         <input type="hidden" name="post_id" value="<?= $post_id; ?>">
+         <input type="hidden" name="R_id" value="<?= $fetch_posts['R_id']; ?>">
+         <div class="post-admin">
+            <i class="fas fa-user"></i>
+            <div>
+               <a href="author_posts.php?author=<?= $fetch_posts['name']; ?>"><?= $fetch_posts['name']; ?></a>
+               <div><?= $fetch_posts['date']; ?></div>
+            </div>
+         </div>
+         
+         <?php
+            if($fetch_posts['image'] != ''){  
+         ?>
+         <img src="uploaded_img/<?= $fetch_posts['image']; ?>" class="post-image" alt="">
+         <?php
+         }
+         ?>
+         <div class="post-title"><?= $fetch_posts['title']; ?></div>
+         <div class="post-content content-150"><?= $fetch_posts['content']; ?></div>
+         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">read more</a>
+         <a href="category.php?category=<?= $fetch_posts['category']; ?>" class="post-cat"> <i class="fas fa-tag"></i> <span><?= $fetch_posts['category']; ?></span></a>
+         <div class="icons">
+            <a href="view_post.php?post_id=<?= $post_id; ?>"><i class="fas fa-comment"></i><span>(<?= $total_post_comments; ?>)</span></a>
+            <button type="submit" name="like_post"><i class="fas fa-heart" style="<?php if($confirm_likes->rowCount() > 0){ echo 'color:var(--red);'; } ?>  "></i><span>(<?= $total_post_likes; ?>)</span></button>
+         </div>
+      
+      </form>
+      <?php
+         }
+      }else{
+         echo '<p class="empty">no posts added yet!</p>';
+      }
+      ?>
+   </div>
+
+   <div class="more-btn" style="text-align: center; margin-top:1rem;">
+      <a href="posts.php" class="inline-btn">view all posts</a>
+   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php include '../components/footer.php'; ?>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
